@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+	<header>
+		<div class="container">
+		<div id="brandname">
+			<center><h2>Result</h2></center>
+		</div>
+		<center><h2></h2></center>
+		
+	</div>
+	</header>
+	<center><b><p style="margin-top: 30px">The below department will contact you as soon as possible</p></b></center>
+	<div class="results">
+
+
+		
+	{% if prediction == 0%}
+	<h2 id="response" style="color:blue;text-align: center;">Debt Collection</h2>
+	{% elif prediction == 1%}
+	<h2 id="response" style="color:blue;text-align: center;">Mortgage</h2>
+	{% elif prediction == 2%}
+	<h2 id="response" style="color:blue;text-align: center;">Credit reporting</h2>
+	{% elif prediction == 3%}
+	<h2 id="response" style="color:blue;text-align: center;">Credit Card</h2>
+	{% elif prediction == 4%}
+	<h2 id="response" style="color:blue;text-align: center;">Bank account or service</h2>
+	{% elif prediction == 5%}
+	<h2 id="response" style="color:blue;text-align: center;">Consumer Loan</h2>
+	{% elif prediction == 6%}
+	<h2 id="response" style="color:blue;text-align: center;">Student Loan</h2>
+	{% elif prediction == 7%}
+	<h2 id="response" style="color:blue;text-align: center;">Prepaid card</h2>
+	{% elif prediction == 8%}
+	<h2 id="response" style="color:blue;text-align: center;">Payday loan</h2>
+	{% elif prediction == 9%}
+	<h2 id="response" style="color:blue;text-align: center;">Money transfers</h2>
+	{% elif prediction == 10%}
+	<h2 id="response" style="color:blue;text-align: center;">Other financial service</h2>
+
+	{% endif %}
+
+	</div>
+
+</body>
+</html>
