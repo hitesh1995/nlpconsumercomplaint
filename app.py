@@ -15,12 +15,15 @@ def home():
 def predict():
     pipeline = joblib.load('text_classification.joblib')
     labels = ['Debt collection', 'Mortgage','Credit reporting', 'Credit card','Bank account or service','Consumer Loan','Student loan','Prepaid card','Payday loan','Money transfers','Other financial service']
-    my_file = open("Monitoring.csv", "a")
+    my_file = open("complaintlog.csv", "a")
     if request.method == 'POST':
         message = request.form['message']
+        msg = request.form['name']
         data = [message]
+        name = [msg]
         prediction = pipeline.predict(data)
-        my_file.write("\n{},".format(str(message)))
+        my_file.write("\n{},".format(str(name)))
+        my_file.write("{},".format(str(message)))
         my_file.write("{},".format(str(labels[int(prediction)])))
         my_file.close()
 
