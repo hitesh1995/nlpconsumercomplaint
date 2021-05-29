@@ -13,7 +13,7 @@ def home():
 
 @app.route('/predict',methods=['POST'])
 def predict():
-    pipeline = joblib.load('text_classification.joblib')
+    pipeline = joblib.load('consumercomplaint.joblib')
     labels = ['Debt collection', 'Mortgage','Credit reporting', 'Credit card','Bank account or service','Consumer Loan','Student loan','Prepaid card','Payday loan','Money transfers','Other financial service']
     my_file = open("complaintlog.csv", "a")
     if request.method == 'POST':
@@ -22,7 +22,7 @@ def predict():
         data = [message]
         name = [msg]
         prediction = pipeline.predict(data)
-        my_file.write("\n{},".format(str(name)))
+        my_file.write("\n{},".format((name)))
         my_file.write("{},".format(str(message)))
         my_file.write("{},".format(str(labels[int(prediction)])))
         my_file.close()
@@ -33,5 +33,5 @@ def predict():
 
 
 
-if __name__ == '__main__':
+if __name__ == '__main__':  
     app.run(debug=True)
